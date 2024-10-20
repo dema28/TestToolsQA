@@ -12,6 +12,7 @@ public class ElementTextBoxTest {
     @Test(description = "Практика заполнение Text Box https://demoqa.com/text-box ")
 
     public void TextBox() throws InterruptedException{
+
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/text-box");
         driver.manage().window().maximize();
