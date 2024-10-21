@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.time.Instant;
 
 import static java.lang.Thread.sleep;
 
@@ -165,13 +164,11 @@ public class ElementTextBoxTest {
         driver.quit();
     }
     @Test(description = "Практика нажатия click-click https://demoqa.com/buttons")
-        public void buttonsClock() throws InterruptedException{
+        public void buttonsClick() throws InterruptedException{
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/buttons");
         driver.manage().window().maximize();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        WebElement button = (WebElement) js.executeScript("return document.getElementById('//*[@id='J8i6D']');");
-        js.executeScript("arguments[0].click();", button);
+
         WebElement buttonsDoubleClick = driver.findElement(By.xpath("//*[@id=\"doubleClickBtn\"]"));
         Actions actions1 = new Actions(driver);
         actions1.doubleClick(buttonsDoubleClick).perform();
@@ -182,13 +179,10 @@ public class ElementTextBoxTest {
         actions.contextClick(buttonsRightClick).perform();
         sleep(500);
 
+        WebElement buttonsClick = driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[2]/div[2]/div[3]/button"));
+        buttonsClick.click();
+        sleep(500);
 
-
-
-//        WebElement buttonsClick = driver.findElement(By.xpath("//*[@id='J8i6D']"));
-//        buttonsClick.click();
-//        sleep(500);
         driver.quit();
     }
-
 }
