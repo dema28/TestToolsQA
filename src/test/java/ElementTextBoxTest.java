@@ -172,7 +172,6 @@ public class ElementTextBoxTest {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         WebElement button = (WebElement) js.executeScript("return document.getElementById('//*[@id='J8i6D']');");
         js.executeScript("arguments[0].click();", button);
-
         WebElement buttonsDoubleClick = driver.findElement(By.xpath("//*[@id=\"doubleClickBtn\"]"));
         Actions actions1 = new Actions(driver);
         actions1.doubleClick(buttonsDoubleClick).perform();
