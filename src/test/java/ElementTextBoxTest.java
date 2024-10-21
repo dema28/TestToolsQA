@@ -169,6 +169,9 @@ public class ElementTextBoxTest {
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/buttons");
         driver.manage().window().maximize();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement button = (WebElement) js.executeScript("return document.getElementById('//*[@id='J8i6D']');");
+        js.executeScript("arguments[0].click();", button);
 
         WebElement buttonsDoubleClick = driver.findElement(By.xpath("//*[@id=\"doubleClickBtn\"]"));
         Actions actions1 = new Actions(driver);
@@ -179,6 +182,9 @@ public class ElementTextBoxTest {
         Actions actions = new Actions(driver);
         actions.contextClick(buttonsRightClick).perform();
         sleep(500);
+
+
+
 
 //        WebElement buttonsClick = driver.findElement(By.xpath("//*[@id='J8i6D']"));
 //        buttonsClick.click();
