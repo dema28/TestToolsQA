@@ -183,7 +183,6 @@ public class ElementTextBoxTest {
 //        WebElement buttonsClick = driver.findElement(By.xpath("//*[@id='J8i6D']"));
 //        buttonsClick.click();
 //        sleep(500);
-
         driver.quit();
     }
 
