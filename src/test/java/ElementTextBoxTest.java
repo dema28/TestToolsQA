@@ -3,19 +3,20 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.time.Instant;
 
 import static java.lang.Thread.sleep;
 
 public class ElementTextBoxTest {
 
     @Test(description = "Практика заполнение Text Box https://demoqa.com/text-box ")
-
-    public void TextBox() throws InterruptedException{
+        public void TextBox() throws InterruptedException{
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/text-box");
@@ -48,10 +49,8 @@ public class ElementTextBoxTest {
 
         driver.quit();
     }
-
     @Test (description = "Практика работы с check box https://demoqa.com/checkbox")
-
-    public void checkBox() throws InterruptedException {
+        public void checkBox() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/checkbox");
@@ -101,8 +100,7 @@ public class ElementTextBoxTest {
          driver.quit();
     }
     @Test(description = "Практика работы с radio button https://demoqa.com/radio-button")
-
-    public void radioButton() throws InterruptedException{
+        public void radioButton() throws InterruptedException{
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/radio-button");
@@ -120,8 +118,7 @@ public class ElementTextBoxTest {
         driver.quit();
     }
     @Test(description = "Практика работы с web tables https://demoqa.com/webtables")
-
-    public void webTables() throws InterruptedException{
+        public void webTables() throws InterruptedException{
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/webtables");
         driver.manage().window().maximize();
@@ -165,6 +162,27 @@ public class ElementTextBoxTest {
         sleep(500);
         delete.click();
 
+        driver.quit();
+    }
+    @Test(description = "Практика нажатия click-click https://demoqa.com/buttons")
+        public void buttonsClock() throws InterruptedException{
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://demoqa.com/buttons");
+        driver.manage().window().maximize();
+
+        WebElement buttonsDoubleClick = driver.findElement(By.xpath("//*[@id=\"doubleClickBtn\"]"));
+        Actions actions1 = new Actions(driver);
+        actions1.doubleClick(buttonsDoubleClick).perform();
+        sleep(500);
+
+        WebElement buttonsRightClick = driver.findElement(By.xpath("//*[@id=\"rightClickBtn\"]"));
+        Actions actions = new Actions(driver);
+        actions.contextClick(buttonsRightClick).perform();
+        sleep(500);
+
+//        WebElement buttonsClick = driver.findElement(By.xpath("//*[@id='J8i6D']"));
+//        buttonsClick.click();
+//        sleep(500);
         driver.quit();
     }
 
