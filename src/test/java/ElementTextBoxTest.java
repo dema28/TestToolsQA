@@ -13,7 +13,6 @@ import java.time.Duration;
 import static java.lang.Thread.sleep;
 
 public class ElementTextBoxTest {
-
     @Test(description = "Практика заполнение Text Box https://demoqa.com/text-box ")
         public void TextBox() throws InterruptedException{
 
