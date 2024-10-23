@@ -3,8 +3,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -15,7 +17,7 @@ public class ElementTextBoxTest {
 
     @Test(description = "Практика заполнение Text Box https://demoqa.com/text-box ")
 
-    public void TextBox() throws InterruptedException{
+    public void TextBox() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/text-box");
@@ -31,78 +33,95 @@ public class ElementTextBoxTest {
         WebElement currentAddress = driver.findElement(By.xpath("//*[@id=\"currentAddress\"]"));
         currentAddress.sendKeys("Balti, Index:3120, Republic of Moldova, str. Alecu Ruso, ap. 36");
 
-        WebElement permanentAddress = driver.findElement(By.xpath("//*[@id=\"permanentAddress\"]"));
+        WebElement permanentAddress = driver.findElement(By.xpath("//*[@id='permanentAddress']"));
         permanentAddress.sendKeys("Balti, Index:3120, Republic of Moldova, str. Alecu Ruso, ap. 36");
 
         // Прокрутка к элементу, найденному по XPath
-        WebElement element = driver.findElement(By.xpath("//*[@id=\"submit\"]"));
+        WebElement element = driver.findElement(By.xpath("//*[@id='submit']"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
 
         sleep(500);
 
-        WebElement buttonSubmit = driver.findElement(By.xpath("//*[@id=\"submit\"]"));
+        WebElement buttonSubmit = driver.findElement(By.xpath("//*[@id='submit']"));
         buttonSubmit.click();
 
         sleep(500);
+
+        WebElement fildName = driver.findElement(By.xpath("//*[@id='name']"));
+        String name = fildName.getText();
+        Assert.assertEquals(name, "Name:Max");
+
+        WebElement fildEmail = driver.findElement(By.xpath("//*[@id='email']"));
+        String name1 = fildEmail.getText();
+        Assert.assertEquals(name1, "Email:max@mail.ru");
+
+        WebElement fildCurrentAddress = driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[2]/div[2]/form/div[6]/div/p[3]"));
+        String name2 = fildCurrentAddress.getText();
+        Assert.assertEquals(name2,"Current Address :Balti, Index:3120, Republic of Moldova, str. Alecu Ruso, ap. 36");
+
+        WebElement fildPermananetAddress = driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[2]/div[2]/form/div[6]/div/p[4]"));
+        String name3 = fildPermananetAddress.getText();
+        Assert.assertEquals(name3, "Permananet Address :Balti, Index:3120, Republic of Moldova, str. Alecu Ruso, ap. 36");
 
         driver.quit();
     }
 
     @Test (description = "Практика работы с check box https://demoqa.com/checkbox")
 
-    public void checkBox() throws InterruptedException {
+        public void checkBox() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/checkbox");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6));
 
-        WebElement toggleButtonHomeOn = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/span/button"));
+        WebElement toggleButtonHomeOn = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/span/button"));
         toggleButtonHomeOn.click();
         sleep(500);
 
-        WebElement toggleButtonDesktopOn = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[1]/span/button"));
+        WebElement toggleButtonDesktopOn = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/ol/li[1]/span/button"));
         toggleButtonDesktopOn.click();
         sleep(500);
 
-        WebElement checkBoxNotesOn = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[1]/ol/li[1]/span/label/span[1]"));
+        WebElement checkBoxNotesOn = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/ol/li[1]/ol/li[1]/span/label/span[1]"));
         checkBoxNotesOn.click();
         sleep(500);
 
-        WebElement checkBoxCommandsOn = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[1]/ol/li[2]/span/label/span[1]"));
+        WebElement checkBoxCommandsOn = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/ol/li[1]/ol/li[2]/span/label/span[1]"));
         checkBoxCommandsOn.click();
         sleep(500);
 
-        WebElement checkBoxCommandsOff = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[1]/ol/li[2]/span/label/span[1]"));
+        WebElement checkBoxCommandsOff = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/ol/li[1]/ol/li[2]/span/label/span[1]"));
         checkBoxCommandsOff.click();
         sleep(500);
 
-        WebElement checkBoxNotesOff = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[1]/ol/li[1]/span/label/span[1]"));
+        WebElement checkBoxNotesOff = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/ol/li[1]/ol/li[1]/span/label/span[1]"));
         checkBoxNotesOff.click();
         sleep(500);
 
-        WebElement toggleButtonDessktopOff = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[1]/span/button"));
+        WebElement toggleButtonDessktopOff = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/ol/li[1]/span/button"));
         toggleButtonDessktopOff.click();
         sleep(500);
 
-        WebElement toggleButtonOff = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/span/button"));
+        WebElement toggleButtonOff = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/span/button"));
         toggleButtonOff.click();
         sleep(500);
 
-        WebElement openAllFolders = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/div/button[1]"));
+        WebElement openAllFolders = driver.findElement(By.xpath("//*[@id='tree-node']/div/button[1]"));
         openAllFolders.click();
         sleep(500);
 
-        WebElement closeAllFolders = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/div/button[2]"));
+        WebElement closeAllFolders = driver.findElement(By.xpath("//*[@id='tree-node']/div/button[2]"));
         closeAllFolders.click();
         sleep(500);
 
          driver.quit();
     }
+
     @Test(description = "Практика работы с radio button https://demoqa.com/radio-button")
 
-    public void radioButton() throws InterruptedException{
+        public void radioButton() throws InterruptedException{
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/radio-button");
@@ -119,9 +138,10 @@ public class ElementTextBoxTest {
 
         driver.quit();
     }
+
     @Test(description = "Практика работы с web tables https://demoqa.com/webtables")
 
-    public void webTables() throws InterruptedException{
+        public void webTables() throws InterruptedException{
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/webtables");
         driver.manage().window().maximize();
@@ -164,6 +184,30 @@ public class ElementTextBoxTest {
         WebElement delete = driver.findElement(By.xpath("//*[@id=\"delete-record-4\"]"));
         sleep(500);
         delete.click();
+
+        driver.quit();
+    }
+
+    @Test(description = "Практика нажатия click-click https://demoqa.com/buttons")
+
+        public void buttonsClick() throws InterruptedException{
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://demoqa.com/buttons");
+        driver.manage().window().maximize();
+
+        WebElement buttonsDoubleClick = driver.findElement(By.xpath("//*[@id=\"doubleClickBtn\"]"));
+        Actions actions1 = new Actions(driver);
+        actions1.doubleClick(buttonsDoubleClick).perform();
+        sleep(500);
+
+        WebElement buttonsRightClick = driver.findElement(By.xpath("//*[@id=\"rightClickBtn\"]"));
+        Actions actions = new Actions(driver);
+        actions.contextClick(buttonsRightClick).perform();
+        sleep(500);
+
+        WebElement buttonsClick = driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[2]/div[2]/div[3]/button"));
+        buttonsClick.click();
+        sleep(500);
 
         driver.quit();
     }
