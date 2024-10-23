@@ -16,21 +16,21 @@ import static java.lang.Thread.sleep;
 public class ElementTextBoxTest {
 
     @Test(description = "Практика заполнение Text Box https://demoqa.com/text-box ")
-        public void TextBox() throws InterruptedException {
+
+    public void TextBox() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/text-box");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 
-
-        WebElement fullName = driver.findElement(By.xpath("//*[@id='userName']"));
+        WebElement fullName = driver.findElement(By.xpath("//*[@id=\"userName\"]"));
         fullName.sendKeys("Max");
 
-        WebElement email = driver.findElement(By.xpath("//*[@id='userEmail']"));
+        WebElement email = driver.findElement(By.xpath("//*[@id=\"userEmail\"]"));
         email.sendKeys("max@mail.ru");
 
-        WebElement currentAddress = driver.findElement(By.xpath("//*[@id='currentAddress']"));
+        WebElement currentAddress = driver.findElement(By.xpath("//*[@id=\"currentAddress\"]"));
         currentAddress.sendKeys("Balti, Index:3120, Republic of Moldova, str. Alecu Ruso, ap. 36");
 
         WebElement permanentAddress = driver.findElement(By.xpath("//*[@id='permanentAddress']"));
