@@ -66,7 +66,9 @@ public class ElementTextBoxTest {
 
         driver.quit();
     }
+
     @Test (description = "Практика работы с check box https://demoqa.com/checkbox")
+
         public void checkBox() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
@@ -116,7 +118,9 @@ public class ElementTextBoxTest {
 
          driver.quit();
     }
+
     @Test(description = "Практика работы с radio button https://demoqa.com/radio-button")
+
         public void radioButton() throws InterruptedException{
 
         WebDriver driver = new ChromeDriver();
@@ -134,7 +138,9 @@ public class ElementTextBoxTest {
 
         driver.quit();
     }
+
     @Test(description = "Практика работы с web tables https://demoqa.com/webtables")
+
         public void webTables() throws InterruptedException{
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/webtables");
@@ -181,7 +187,9 @@ public class ElementTextBoxTest {
 
         driver.quit();
     }
+
     @Test(description = "Практика нажатия click-click https://demoqa.com/buttons")
+
         public void buttonsClick() throws InterruptedException{
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/buttons");
