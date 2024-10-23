@@ -24,13 +24,13 @@ public class ElementTextBoxTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 
-        WebElement fullName = driver.findElement(By.xpath("//*[@id=\"userName\"]"));
+        WebElement fullName = driver.findElement(By.xpath("//*[@id='userName']"));
         fullName.sendKeys("Max");
 
-        WebElement email = driver.findElement(By.xpath("//*[@id=\"userEmail\"]"));
+        WebElement email = driver.findElement(By.xpath("//*[@id='userEmail']"));
         email.sendKeys("max@mail.ru");
 
-        WebElement currentAddress = driver.findElement(By.xpath("//*[@id=\"currentAddress\"]"));
+        WebElement currentAddress = driver.findElement(By.xpath("//*[@id='currentAddress']"));
         currentAddress.sendKeys("Balti, Index:3120, Republic of Moldova, str. Alecu Ruso, ap. 36");
 
         WebElement permanentAddress = driver.findElement(By.xpath("//*[@id='permanentAddress']"));
@@ -128,12 +128,12 @@ public class ElementTextBoxTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6));
 
-        WebElement radioButtonYes = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[2]/label"));
+        WebElement radioButtonYes = driver.findElement(By.xpath("//*[@id='app']/div/div/div/div[2]/div[2]/div[2]/label"));
         radioButtonYes.click();
 
         sleep(500);
 
-        WebElement radioButtonImpressive = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/div[2]/div[2]/div[3]/label"));
+        WebElement radioButtonImpressive = driver.findElement(By.xpath("//*[@id='app']/div/div/div/div[2]/div[2]/div[3]/label"));
         radioButtonImpressive.click();
 
         driver.quit();
@@ -146,42 +146,42 @@ public class ElementTextBoxTest {
         driver.get("https://demoqa.com/webtables");
         driver.manage().window().maximize();
 
-        WebElement buttonAdd = driver.findElement(By.xpath("//*[@id=\"addNewRecordButton\"]"));
+        WebElement buttonAdd = driver.findElement(By.xpath("//*[@id='addNewRecordButton']"));
         buttonAdd.click();
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement modal = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"userForm\"]")));
+        WebElement modal = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='userForm']")));
 
-        WebElement firstName = modal.findElement(By.xpath("//*[@id=\"firstName\"]"));
+        WebElement firstName = modal.findElement(By.xpath("//*[@id='firstName']"));
         firstName.sendKeys("Max");
 
-        WebElement lastName = modal.findElement(By.xpath("//*[@id=\"lastName\"]"));
+        WebElement lastName = modal.findElement(By.xpath("//*[@id='lastName']"));
         lastName.sendKeys("Pankratov");
 
-        WebElement email = modal.findElement(By.xpath("//*[@id=\"userEmail\"]"));
+        WebElement email = modal.findElement(By.xpath("//*[@id='userEmail']"));
         email.sendKeys("max@mail.ru");
 
-        WebElement age = modal.findElement(By.xpath("//*[@id=\"age\"]"));
+        WebElement age = modal.findElement(By.xpath("//*[@id='age']"));
         age.sendKeys("43");
 
-        WebElement salary = modal.findElement(By.xpath("//*[@id=\"salary\"]"));
+        WebElement salary = modal.findElement(By.xpath("//*[@id='salary']"));
         salary.sendKeys("10000");
 
-        WebElement department = modal.findElement(By.xpath("//*[@id=\"department\"]"));
+        WebElement department = modal.findElement(By.xpath("//*[@id='department']"));
         department.sendKeys("QA Automation");
 
-        WebElement submit = modal.findElement(By.xpath("//*[@id=\"submit\"]"));
+        WebElement submit = modal.findElement(By.xpath("//*[@id='submit']"));
         submit.click();
 
-        WebElement tables = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/div[2]"));
+        WebElement tables = driver.findElement(By.xpath("//*[@id='app']/div/div/div/div[2]"));
         tables.click();
 
-        WebElement searchBox = driver.findElement(By.xpath("//*[@id=\"searchBox\"]"));
+        WebElement searchBox = driver.findElement(By.xpath("//*[@id='searchBox']"));
         searchBox.sendKeys("Max");
 
         sleep(500);
 
-        WebElement delete = driver.findElement(By.xpath("//*[@id=\"delete-record-4\"]"));
+        WebElement delete = driver.findElement(By.xpath("//*[@id='delete-record-4']"));
         sleep(500);
         delete.click();
 
@@ -195,12 +195,12 @@ public class ElementTextBoxTest {
         driver.get("https://demoqa.com/buttons");
         driver.manage().window().maximize();
 
-        WebElement buttonsDoubleClick = driver.findElement(By.xpath("//*[@id=\"doubleClickBtn\"]"));
+        WebElement buttonsDoubleClick = driver.findElement(By.xpath("//*[@id='doubleClickBtn']"));
         Actions actions1 = new Actions(driver);
         actions1.doubleClick(buttonsDoubleClick).perform();
         sleep(500);
 
-        WebElement buttonsRightClick = driver.findElement(By.xpath("//*[@id=\"rightClickBtn\"]"));
+        WebElement buttonsRightClick = driver.findElement(By.xpath("//*[@id='rightClickBtn']"));
         Actions actions = new Actions(driver);
         actions.contextClick(buttonsRightClick).perform();
         sleep(500);
