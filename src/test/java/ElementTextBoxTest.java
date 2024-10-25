@@ -69,7 +69,7 @@ public class ElementTextBoxTest {
 
     @Test (description = "Практика работы с check box https://demoqa.com/checkbox")
 
-        public void checkBox() throws InterruptedException {
+        public void testCheckBox() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/checkbox");
@@ -83,6 +83,22 @@ public class ElementTextBoxTest {
         WebElement toggleButtonDesktopOn = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/ol/li[1]/span/button"));
         toggleButtonDesktopOn.click();
         sleep(500);
+
+        WebElement desktopFolder = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/ol/li[1]/ol"));
+        boolean isDesktopVisibleAfterToggleOn = desktopFolder.isDisplayed();
+        sleep(2000);
+//        WebElement toggleButtonHomeOff = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/span/button"));
+//        toggleButtonHomeOff.click();
+//        sleep(500);
+
+        WebElement toggleButtonDesktopOff = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/ol/li[1]/span/button"));
+        toggleButtonDesktopOff.click();
+        sleep(500);
+
+        boolean isDesktopVisibleAfterToggleOff = !desktopFolder.isDisplayed();
+
+        Assert.assertTrue(isDesktopVisibleAfterToggleOn, "Папка 'Desktop' должна быть видна после включения toggle");
+        Assert.assertTrue(isDesktopVisibleAfterToggleOff, "Папка 'Desktop' должна быть скрыта после выключения toggle");
 
         WebElement checkBoxNotesOn = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/ol/li[1]/ol/li[1]/span/label/span[1]"));
         checkBoxNotesOn.click();
@@ -100,12 +116,10 @@ public class ElementTextBoxTest {
         checkBoxNotesOff.click();
         sleep(500);
 
-        WebElement toggleButtonDessktopOff = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/ol/li[1]/span/button"));
-        toggleButtonDessktopOff.click();
-        sleep(500);
 
-        WebElement toggleButtonOff = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/span/button"));
-        toggleButtonOff.click();
+
+        WebElement toggleButtonHomeOff = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/span/button"));
+        toggleButtonHomeOff.click();
         sleep(500);
 
         WebElement openAllFolders = driver.findElement(By.xpath("//*[@id='tree-node']/div/button[1]"));
