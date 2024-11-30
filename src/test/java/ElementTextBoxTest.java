@@ -64,12 +64,12 @@ public class ElementTextBoxTest {
         String name3 = fildPermananetAddress.getText();
         Assert.assertEquals(name3, "Permananet Address :Balti, Index:3120, Republic of Moldova, str. Alecu Ruso, ap. 36");
 
-        driver.quit();
+//        driver.quit();
     }
 
     @Test (description = "Практика работы с check box https://demoqa.com/checkbox")
 
-        public void checkBox() throws InterruptedException {
+        public void testCheckBox() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/checkbox");
@@ -100,13 +100,12 @@ public class ElementTextBoxTest {
         checkBoxNotesOff.click();
         sleep(500);
 
-        WebElement toggleButtonDessktopOff = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/ol/li[1]/span/button"));
-        toggleButtonDessktopOff.click();
+        WebElement toggleButtonHomeOff = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/span/button"));
+        toggleButtonHomeOff.click();
         sleep(500);
 
-        WebElement toggleButtonOff = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/span/button"));
-        toggleButtonOff.click();
-        sleep(500);
+        WebElement fieldCheckBoxHome = driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[2]/div[2]/div/ol/li/span/label/span[1]"));
+        Assert.assertTrue(fieldCheckBoxHome.isEnabled(), "Чек бокс должен быть доступным для нажатия");
 
         WebElement openAllFolders = driver.findElement(By.xpath("//*[@id='tree-node']/div/button[1]"));
         openAllFolders.click();
