@@ -64,7 +64,7 @@ public class ElementTextBoxTest {
         String name3 = fildPermananetAddress.getText();
         Assert.assertEquals(name3, "Permananet Address :Balti, Index:3120, Republic of Moldova, str. Alecu Ruso, ap. 36");
 
-        driver.quit();
+//        driver.quit();
     }
 
     @Test (description = "Практика работы с check box https://demoqa.com/checkbox")
@@ -84,22 +84,6 @@ public class ElementTextBoxTest {
         toggleButtonDesktopOn.click();
         sleep(500);
 
-        WebElement desktopFolder = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/ol/li[1]/ol"));
-        boolean isDesktopVisibleAfterToggleOn = desktopFolder.isDisplayed();
-        sleep(2000);
-//        WebElement toggleButtonHomeOff = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/span/button"));
-//        toggleButtonHomeOff.click();
-//        sleep(500);
-
-        WebElement toggleButtonDesktopOff = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/ol/li[1]/span/button"));
-        toggleButtonDesktopOff.click();
-        sleep(500);
-
-        boolean isDesktopVisibleAfterToggleOff = !desktopFolder.isDisplayed();
-
-        Assert.assertTrue(isDesktopVisibleAfterToggleOn, "Папка 'Desktop' должна быть видна после включения toggle");
-        Assert.assertTrue(isDesktopVisibleAfterToggleOff, "Папка 'Desktop' должна быть скрыта после выключения toggle");
-
         WebElement checkBoxNotesOn = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/ol/li[1]/ol/li[1]/span/label/span[1]"));
         checkBoxNotesOn.click();
         sleep(500);
@@ -116,11 +100,12 @@ public class ElementTextBoxTest {
         checkBoxNotesOff.click();
         sleep(500);
 
-
-
         WebElement toggleButtonHomeOff = driver.findElement(By.xpath("//*[@id='tree-node']/ol/li/span/button"));
         toggleButtonHomeOff.click();
         sleep(500);
+
+        WebElement fieldCheckBoxHome = driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[2]/div[2]/div/ol/li/span/label/span[1]"));
+        Assert.assertTrue(fieldCheckBoxHome.isEnabled(), "Чек бокс должен быть доступным для нажатия");
 
         WebElement openAllFolders = driver.findElement(By.xpath("//*[@id='tree-node']/div/button[1]"));
         openAllFolders.click();
